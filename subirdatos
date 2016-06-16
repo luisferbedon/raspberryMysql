@@ -4,7 +4,7 @@ arduino=serial.Serial('/dev/ttyACM0',baudrate=9600)
 arduino.close()
 arduino.open()
 arduino.flush()
-contador = 0
+count = 0
 time.sleep(2)
 while True:
         while arduino.inWaiting() > 4:
@@ -12,7 +12,7 @@ while True:
                 if rx[0]=='$':
                         if rx[5] == '$':
                                 print rx
-                                if(contador==10):
+                                if(count==300):
                                         import MySQLdb
                                         db = MySQLdb.connect("localhost","root","luisfer061991","datos")
                                         cursor = db.cursor()
